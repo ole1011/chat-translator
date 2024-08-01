@@ -23,7 +23,7 @@ public class ChatServiceImpl implements ChatService {
                 .filter(translate -> translate.sourceText().equals(message) && translate.targetLanguage() == language)
                 .findFirst();
         if (translation.isPresent()) {
-            log.info("Retrieved translation from cache");
+            log.info("Retrieving translation from cache");
             return translation.get().translatedText();
         }
 
