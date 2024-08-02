@@ -55,7 +55,7 @@ public class ChatTranslator {
         INSTANCE.setGenerator(unit -> unit.modifier().fillHeight(0, 40, Block.GRASS_BLOCK));
         INSTANCE.setChunkSupplier(LightingChunk::new);
 
-        MinecraftServer.setBrandName("MineStom");
+        MinecraftServer.setBrandName("Minestom");
 
         MojangAuth.init();
 
