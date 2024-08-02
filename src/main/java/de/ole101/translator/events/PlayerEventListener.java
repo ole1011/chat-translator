@@ -11,6 +11,7 @@ import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerChatEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
+import net.minestom.server.event.trait.PlayerEvent;
 
 import java.util.stream.Collectors;
 
@@ -26,12 +27,12 @@ import static net.kyori.adventure.text.format.NamedTextColor.YELLOW;
 import static net.kyori.adventure.text.format.TextDecoration.ITALIC;
 import static net.minestom.server.adventure.audience.Audiences.all;
 
-public class PlayerEvent {
+public class PlayerEventListener {
 
     @Inject
     private ChatService chatService;
 
-    public EventNode<net.minestom.server.event.trait.PlayerEvent> playerNode() {
+    public EventNode<PlayerEvent> playerNode() {
         return EventNode.type("player", EventFilter.PLAYER)
                 .addListener(AsyncPlayerConfigurationEvent.class, event -> {
                     User user = (User) event.getPlayer();

@@ -5,7 +5,7 @@ import com.google.inject.Injector;
 import de.ole101.translator.command.LanguageCommand;
 import de.ole101.translator.common.GuiceModule;
 import de.ole101.translator.common.models.User;
-import de.ole101.translator.events.PlayerEvent;
+import de.ole101.translator.events.PlayerEventListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.extern.slf4j.Slf4j;
 import net.minestom.server.MinecraftServer;
@@ -68,7 +68,7 @@ public class ChatTranslator {
             responseData.setMaxPlayer(100);
             responseData.setDescription(text("Welcome to a server with automatic chat translation!", SKY_BLUE));
         });
-        globalEventHandler.addChild(injector.getInstance(PlayerEvent.class).playerNode());
+        globalEventHandler.addChild(injector.getInstance(PlayerEventListener.class).playerNode());
 
         /*
          * Register commands
