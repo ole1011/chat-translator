@@ -41,7 +41,7 @@ public class PlayerEventListener {
                         return;
                     }
                     Player player = event.getPlayer();
-                    all().sendMessage(text(player.getUsername(), YELLOW).append(text(" has joined.", GREEN)));
+                    all().sendMessage(text(player.getUsername()).append(text(" has joined.")).color(WHITE));
 
                     player.sendMessage(text("Select your language with ", SKY_BLUE)
                             .append(text("/language", BLUE))
@@ -49,7 +49,7 @@ public class PlayerEventListener {
                             .hoverEvent(text("/language", BLUE))
                             .clickEvent(runCommand("/language")));
                 })
-                .addListener(PlayerDisconnectEvent.class, event -> all().sendMessage(text(event.getPlayer().getUsername(), YELLOW).append(text(" has left.", GREEN))))
+                .addListener(PlayerDisconnectEvent.class, event -> all().sendMessage(text(event.getPlayer().getUsername()).append(text(" has left.")).color(WHITE)))
                 .addListener(PlayerChatEvent.class, event -> {
                     User user = (User) event.getPlayer();
                     String message = event.getMessage();
