@@ -1,6 +1,5 @@
 package de.ole101.translator.common.models;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -13,7 +12,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @Accessors(fluent = true)
-@EqualsAndHashCode(callSuper = true)
 public class User extends Player {
 
     @NotNull

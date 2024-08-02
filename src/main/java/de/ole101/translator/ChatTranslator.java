@@ -7,8 +7,6 @@ import de.ole101.translator.common.GuiceModule;
 import de.ole101.translator.common.models.User;
 import de.ole101.translator.events.PlayerEvent;
 import io.github.cdimascio.dotenv.Dotenv;
-import lombok.Getter;
-import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
@@ -30,8 +28,6 @@ import static java.lang.System.currentTimeMillis;
 import static net.kyori.adventure.text.Component.text;
 
 @Slf4j
-@Getter
-@Accessors(fluent = true)
 public class ChatTranslator {
 
     public static Instance INSTANCE;
