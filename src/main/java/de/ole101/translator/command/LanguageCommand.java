@@ -20,6 +20,7 @@ public class LanguageCommand extends Command {
 
         ArgumentEnum<Translation.Language> language = Enum("language", Translation.Language.class);
 
+        // TODO: consider auto-generating this message
         setDefaultExecutor((sender, context) -> sender.sendMessage(text("Usage: /language <language>", RED)));
 
         addSyntax((sender, context) -> {
