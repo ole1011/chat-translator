@@ -22,8 +22,6 @@ import static de.ole101.translator.common.Color.SKY_BLUE;
 import static de.ole101.translator.common.Color.WHITE;
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.event.ClickEvent.runCommand;
-import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
-import static net.kyori.adventure.text.format.NamedTextColor.YELLOW;
 import static net.kyori.adventure.text.format.TextDecoration.ITALIC;
 import static net.minestom.server.adventure.audience.Audiences.all;
 
@@ -35,10 +33,8 @@ public class PlayerEventListener {
     public EventNode<PlayerEvent> playerNode() {
         return EventNode.type("player", EventFilter.PLAYER)
                 .addListener(AsyncPlayerConfigurationEvent.class, event -> {
-                    User user = (User) event.getPlayer();
-
                     event.setSpawningInstance(INSTANCE);
-                    user.setRespawnPoint(new Pos(0, 42, 0));
+                    event.getPlayer().setRespawnPoint(new Pos(0, 42, 0));
                 })
                 .addListener(PlayerSpawnEvent.class, event -> {
                     if (!event.isFirstSpawn()) {
@@ -55,10 +51,6 @@ public class PlayerEventListener {
                 })
                 .addListener(PlayerDisconnectEvent.class, event -> all().sendMessage(text(event.getPlayer().getUsername(), YELLOW).append(text(" has left.", GREEN))))
                 .addListener(PlayerChatEvent.class, event -> {
-                    event.setChatFormat(chatEvent -> text(chatEvent.getPlayer().getUsername())
-                            .append(text(": ", WHITE))
-                            .append(text(event.getMessage())));
-
                     User user = (User) event.getPlayer();
                     String message = event.getMessage();
 
