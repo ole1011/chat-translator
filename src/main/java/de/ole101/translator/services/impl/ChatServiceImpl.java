@@ -19,12 +19,12 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public String translate(String message, Translation.Language language) {
-        Optional<Translation> translation = this.translations.stream()
+        Optional<Translation> optionalTranslation = this.translations.stream()
                 .filter(translate -> translate.sourceText().equals(message) && translate.targetLanguage() == language)
                 .findFirst();
-        if (translation.isPresent()) {
+        if (optionalTranslation.isPresent()) {
             log.info("Retrieving translation from cache");
-            return translation.get().translatedText();
+            return optionalTranslation.get().translatedText();
         }
 
         Translator translator = new Translator(ChatTranslator.DEEPL_API_KEY);
