@@ -24,7 +24,7 @@ dependencies {
     implementation("org.tinylog:tinylog-api:2.7.0")
     implementation("org.tinylog:tinylog-impl:2.7.0")
     implementation("org.tinylog:slf4j-tinylog:2.7.0")
-    implementation("net.minestom:minestom-snapshots:247db8c0c6")
+    implementation("net.minestom:minestom-snapshots:7b180172ce")
     implementation("io.github.cdimascio:dotenv-java:3.0.0")
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
