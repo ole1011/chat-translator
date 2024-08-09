@@ -27,6 +27,8 @@ dependencies {
     implementation("net.minestom:minestom-snapshots:461c56e749")
     implementation("io.github.cdimascio:dotenv-java:3.0.0")
     compileOnly("org.projectlombok:lombok:1.18.34")
+    implementation("org.atteo.classindex:classindex:3.4")
+    annotationProcessor("org.atteo.classindex:classindex:3.4")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
 }
 
