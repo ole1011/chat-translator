@@ -2,7 +2,7 @@ package de.ole101.translator;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.ole101.translator.command.LanguageCommand;
+import de.ole101.translator.command.IndexedCommand;
 import de.ole101.translator.common.GuiceModule;
 import de.ole101.translator.common.models.User;
 import de.ole101.translator.events.PlayerEventListener;
@@ -19,11 +19,10 @@ import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.ping.ResponseData;
+import org.atteo.classindex.ClassIndex;
 
-import java.util.List;
-
-import static de.ole101.translator.common.Color.RED;
-import static de.ole101.translator.common.Color.SKY_BLUE;
+import static de.ole101.translator.common.Colors.RED;
+import static de.ole101.translator.common.Colors.SKY_BLUE;
 import static java.lang.System.currentTimeMillis;
 import static net.kyori.adventure.text.Component.text;
 
@@ -75,7 +74,14 @@ public class ChatTranslator {
          */
         CommandManager commandManager = MinecraftServer.getCommandManager();
         commandManager.setUnknownCommandCallback((sender, command) -> sender.sendMessage(text("Unknown command: /" + command, RED)));
-        COMMANDS.forEach(commandManager::register);
+        ClassIndex.getAnnotated(IndexedCommand.class).forEach(command -> {
+            try {
+                commandManager.register((Command) injector.getInstance(command));
+                log.debug("Registered command: {}", command.getSimpleName());
+            } catch (Exception e) {
+                log.error("Failed to register command: {}", command.getSimpleName(), e);
+            }
+        });
 
         MinecraftServer.getConnectionManager().setPlayerProvider(User::new);
 

@@ -1,6 +1,6 @@
 package de.ole101.translator.command;
 
-import de.ole101.translator.common.models.Translation;
+import de.ole101.translator.common.enums.Language;
 import de.ole101.translator.common.models.User;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.ArgumentEnum;
@@ -11,6 +11,7 @@ import static de.ole101.translator.common.Colors.RED;
 import static net.kyori.adventure.text.Component.text;
 import static net.minestom.server.command.builder.arguments.ArgumentType.Enum;
 
+@IndexedCommand
 public class LanguageCommand extends Command {
 
     public LanguageCommand() {
