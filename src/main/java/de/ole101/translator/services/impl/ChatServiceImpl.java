@@ -3,10 +3,11 @@ package de.ole101.translator.services.impl;
 import com.deepl.api.DeepLException;
 import com.deepl.api.TextResult;
 import com.deepl.api.Translator;
-import de.ole101.translator.ChatTranslator;
+import com.google.inject.Inject;
 import de.ole101.translator.common.enums.Language;
 import de.ole101.translator.common.models.Translation;
 import de.ole101.translator.services.ChatService;
+import jakarta.inject.Named;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -19,8 +20,12 @@ public class ChatServiceImpl implements ChatService {
     private final List<Translation> translations = new ArrayList<>();
     private final Translator translator;
 
-    public ChatServiceImpl() {
-        this.translator = new Translator(ChatTranslator.DEEPL_API_KEY);
+    @Inject
+    public ChatServiceImpl(@Named("deeplApiKey") String apiKey) {
+        if (apiKey == null || apiKey.isEmpty()) {
+            throw new IllegalArgumentException("DeepL API key must not be null or empty");
+        }
+        this.translator = new Translator(apiKey);
     }
 
     @Override

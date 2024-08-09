@@ -6,7 +6,6 @@ import de.ole101.translator.command.IndexedCommand;
 import de.ole101.translator.common.GuiceModule;
 import de.ole101.translator.common.models.User;
 import de.ole101.translator.events.PlayerEventListener;
-import io.github.cdimascio.dotenv.Dotenv;
 import lombok.extern.slf4j.Slf4j;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
@@ -30,15 +29,6 @@ import static net.kyori.adventure.text.Component.text;
 public class ChatTranslator {
 
     public static Instance INSTANCE;
-    public static String DEEPL_API_KEY;
-
-    public ChatTranslator() {
-        Dotenv dotenv = Dotenv.configure()
-                .directory("src/main/resources")
-                .load();
-
-        DEEPL_API_KEY = dotenv.get("DEEPL_API_KEY");
-    }
 
     public static void main(String[] args) {
         long startTime = currentTimeMillis();
