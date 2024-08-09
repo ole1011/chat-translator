@@ -19,7 +19,7 @@ public class LanguageCommand extends Command {
 
         setCondition(Conditions::playerOnly);
 
-        ArgumentEnum<Translation.Language> language = Enum("language", Translation.Language.class);
+        ArgumentEnum<Language> language = Enum("language", Language.class);
 
         // TODO: consider auto-generating this message
         setDefaultExecutor((sender, context) -> sender.sendMessage(text("Usage: /language <language>", RED)));
@@ -27,7 +27,7 @@ public class LanguageCommand extends Command {
         addSyntax((sender, context) -> {
             User user = (User) sender;
 
-            Translation.Language languageType = context.get(language);
+            Language languageType = context.get(language);
             user.language(languageType);
 
             user.sendMessage(text("Language set to " + languageType.name() + "!", GREEN));

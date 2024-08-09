@@ -1,5 +1,6 @@
 package de.ole101.translator.common.models;
 
+import de.ole101.translator.common.enums.Language;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -15,7 +16,7 @@ import java.util.UUID;
 public class User extends Player {
 
     @NotNull
-    private Translation.Language language = Translation.Language.ENGLISH;
+    private Language language = Language.ENGLISH;
 
     public User(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
         super(uuid, username, playerConnection);

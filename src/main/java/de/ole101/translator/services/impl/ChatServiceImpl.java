@@ -4,6 +4,7 @@ import com.deepl.api.DeepLException;
 import com.deepl.api.TextResult;
 import com.deepl.api.Translator;
 import de.ole101.translator.ChatTranslator;
+import de.ole101.translator.common.enums.Language;
 import de.ole101.translator.common.models.Translation;
 import de.ole101.translator.services.ChatService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public String translate(String message, Translation.Language language) {
+    public String translate(String message, Language language) {
         Optional<Translation> optionalTranslation = this.translations.stream()
                 .filter(translate -> translate.sourceText().equals(message) && translate.targetLanguage() == language)
                 .findFirst();
