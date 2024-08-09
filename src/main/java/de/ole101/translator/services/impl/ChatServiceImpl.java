@@ -16,6 +16,11 @@ import java.util.Optional;
 public class ChatServiceImpl implements ChatService {
 
     private final List<Translation> translations = new ArrayList<>();
+    private final Translator translator;
+
+    public ChatServiceImpl() {
+        this.translator = new Translator(ChatTranslator.DEEPL_API_KEY);
+    }
 
     @Override
     public String translate(String message, Translation.Language language) {
@@ -27,10 +32,9 @@ public class ChatServiceImpl implements ChatService {
             return optionalTranslation.get().translatedText();
         }
 
-        Translator translator = new Translator(ChatTranslator.DEEPL_API_KEY);
         TextResult result;
         try {
-            result = translator.translateText(message, null, language.code());
+            result = this.translator.translateText(message, null, language.code());
         } catch (DeepLException | InterruptedException e) {
             log.error("Error while translating message", e);
             return message;

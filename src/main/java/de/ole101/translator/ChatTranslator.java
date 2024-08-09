@@ -32,17 +32,15 @@ public class ChatTranslator {
     public static Instance INSTANCE;
     public static String DEEPL_API_KEY;
 
-    private static final List<Command> COMMANDS = List.of(
-            new LanguageCommand()
-    );
-
-    public static void main(String[] args) {
+    public ChatTranslator() {
         Dotenv dotenv = Dotenv.configure()
                 .directory("src/main/resources")
                 .load();
 
         DEEPL_API_KEY = dotenv.get("DEEPL_API_KEY");
+    }
 
+    public static void main(String[] args) {
         long startTime = currentTimeMillis();
         Injector injector = Guice.createInjector(new GuiceModule());
 
@@ -50,11 +48,8 @@ public class ChatTranslator {
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
 
         INSTANCE = instanceManager.createInstanceContainer();
-        INSTANCE.enableAutoChunkLoad(true);
         INSTANCE.setGenerator(unit -> unit.modifier().fillHeight(0, 40, Block.GRASS_BLOCK));
         INSTANCE.setChunkSupplier(LightingChunk::new);
-
-        MinecraftServer.setBrandName("Minestom");
 
         MojangAuth.init();
 
