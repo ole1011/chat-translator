@@ -29,8 +29,10 @@ public class ChatServiceImpl implements ChatService {
                 .filter(translate -> translate.sourceText().equals(message) && translate.targetLanguage() == language)
                 .findFirst();
         if (optionalTranslation.isPresent()) {
-            log.info("Retrieving translation from cache");
-            return optionalTranslation.get().translatedText();
+            Translation translation = optionalTranslation.get();
+
+            log.debug("Retrieving translation from cache: {} - {}", message, translation.translatedText());
+            return translation.translatedText();
         }
 
         TextResult result;
@@ -48,7 +50,7 @@ public class ChatServiceImpl implements ChatService {
                 .translatedText(resultText)
                 .build());
 
-        log.info("Translated message: {}", resultText);
+        log.debug("Translated message: {} -> {}", message, resultText);
 
         return resultText;
     }
