@@ -2,7 +2,7 @@ package de.ole101.translator.common;
 
 import net.kyori.adventure.text.format.TextColor;
 
-public class Color {
+public class Colors {
 
     public static final TextColor BLUE = TextColor.fromHexString("#0095FF");
     public static final TextColor RED = TextColor.fromHexString("#FF3B3B");

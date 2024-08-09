@@ -16,10 +16,10 @@ import net.minestom.server.event.trait.PlayerEvent;
 import java.util.stream.Collectors;
 
 import static de.ole101.translator.ChatTranslator.INSTANCE;
-import static de.ole101.translator.common.Color.BLUE;
-import static de.ole101.translator.common.Color.GRAY;
-import static de.ole101.translator.common.Color.SKY_BLUE;
-import static de.ole101.translator.common.Color.WHITE;
+import static de.ole101.translator.common.Colors.BLUE;
+import static de.ole101.translator.common.Colors.GRAY;
+import static de.ole101.translator.common.Colors.SKY_BLUE;
+import static de.ole101.translator.common.Colors.WHITE;
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.event.ClickEvent.runCommand;
 import static net.kyori.adventure.text.format.TextDecoration.ITALIC;

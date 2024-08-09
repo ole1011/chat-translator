@@ -6,8 +6,8 @@ import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.ArgumentEnum;
 import net.minestom.server.command.builder.condition.Conditions;
 
-import static de.ole101.translator.common.Color.GREEN;
-import static de.ole101.translator.common.Color.RED;
+import static de.ole101.translator.common.Colors.GREEN;
+import static de.ole101.translator.common.Colors.RED;
 import static net.kyori.adventure.text.Component.text;
 import static net.minestom.server.command.builder.arguments.ArgumentType.Enum;
 
