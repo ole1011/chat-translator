@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation("com.google.inject:guice:7.0.0")
-    implementation("org.jetbrains:annotations:24.0.0")
+    implementation("org.jetbrains:annotations:24.1.0")
     implementation("com.deepl.api:deepl-java:1.5.0")
     implementation("org.tinylog:tinylog-api:2.7.0")
     implementation("org.tinylog:tinylog-impl:2.7.0")
