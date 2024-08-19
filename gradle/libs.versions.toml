@@ -14,7 +14,7 @@ spring-boot = "3.3.2"
 spring-dotenv = "4.0.0"
 caffeine = "3.1.8"
 
-minestom = "461c56e749"
+minestom = "7320437640"
 dotenv = "3.0.1"
 classindex = "3.13"
 
