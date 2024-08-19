@@ -15,7 +15,7 @@ spring-dotenv = "4.0.0"
 caffeine = "3.1.8"
 
 minestom = "461c56e749"
-dotenv = "3.0.0"
+dotenv = "3.0.1"
 classindex = "3.13"
 
 [libraries]
