@@ -1,53 +1,50 @@
 import org.gradle.api.JavaVersion.VERSION_21
 
-group = "de.ole101.translator"
-version = "1.0-SNAPSHOT"
-description = "A Minestom server implementation with an automatic chat translator for Minecraft"
-
-java.sourceCompatibility = VERSION_21
-
 plugins {
-    id("java")
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("java-library")
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
-repositories {
-    mavenCentral()
-    maven("https://oss.sonatype.org/content/groups/public/")
-    maven("https://jitpack.io")
+allprojects {
+    apply(plugin = "java-library")
+
+    group = "de.ole101.translator"
+    version = "1.0-SNAPSHOT"
+    description = "A Minestom server implementation with an automatic chat translator for Minecraft"
+
+    repositories {
+        mavenCentral()
+        maven("https://oss.sonatype.org/content/groups/public/")
+        maven("https://jitpack.io")
+    }
+
+    dependencies {
+        "annotationProcessor"(rootProject.libs.bundles.utils)
+        "implementation"(rootProject.libs.bundles.utils)
+    }
+
+    tasks.withType<JavaCompile>().configureEach {
+        sourceCompatibility = VERSION_21.toString()
+        targetCompatibility = VERSION_21.toString()
+        options.encoding = "UTF-8"
+    }
 }
 
 dependencies {
-    implementation("com.google.inject:guice:7.0.0")
-    implementation("org.jetbrains:annotations:24.1.0")
-    implementation("com.deepl.api:deepl-java:1.5.0")
-    implementation("org.tinylog:tinylog-api:2.7.0")
-    implementation("org.tinylog:tinylog-impl:2.7.0")
-    implementation("org.tinylog:slf4j-tinylog:2.7.0")
-    implementation("net.minestom:minestom-snapshots:461c56e749")
-    implementation("io.github.cdimascio:dotenv-java:3.0.0")
-    compileOnly("org.projectlombok:lombok:1.18.34")
-    implementation("org.atteo.classindex:classindex:3.13")
-    annotationProcessor("org.atteo.classindex:classindex:3.4")
-    annotationProcessor("org.projectlombok:lombok:1.18.34")
+    implementation(project(":base"))
+    implementation(project(":api"))
 }
 
 tasks {
-    withType<JavaCompile> {
-        options.encoding = "UTF-8"
-    }
-
-    withType<Javadoc> {
-        options.encoding = "UTF-8"
-    }
-
-    withType<Jar> {
-        manifest {
-            attributes["Main-Class"] = "de.ole101.translator.TranslatorPlugin"
-        }
+    test {
+        useJUnitPlatform()
     }
 
     build {
         dependsOn(shadowJar)
+    }
+
+    shadowJar {
+        archiveFileName.set("${project.name}-${project.version}.jar")
     }
 }

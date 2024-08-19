@@ -15,6 +15,8 @@ import java.util.UUID;
 @Accessors(fluent = true)
 public class User extends Player {
 
+    private String id;
+
     @NotNull
     private Language language = Language.ENGLISH;
 
