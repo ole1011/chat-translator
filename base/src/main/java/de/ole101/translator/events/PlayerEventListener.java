@@ -27,8 +27,12 @@ import static net.minestom.server.adventure.audience.Audiences.all;
 
 public class PlayerEventListener {
 
+    private final ChatService chatService;
+
     @Inject
-    private ChatService chatService;
+    public PlayerEventListener(ChatService chatService) {
+        this.chatService = chatService;
+    }
 
     public EventNode<PlayerEvent> playerNode() {
         return EventNode.type("player", EventFilter.PLAYER)
