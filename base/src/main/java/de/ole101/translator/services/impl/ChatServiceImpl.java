@@ -4,6 +4,7 @@ import com.deepl.api.DeepLException;
 import com.deepl.api.TextResult;
 import com.deepl.api.Translator;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import de.ole101.translator.common.enums.Language;
 import de.ole101.translator.common.models.Translation;
 import de.ole101.translator.services.ChatService;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
+@Singleton
 public class ChatServiceImpl implements ChatService {
 
     private final List<Translation> translations = new ArrayList<>();
