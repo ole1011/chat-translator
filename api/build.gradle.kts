@@ -12,6 +12,7 @@ dependencies {
     implementation(rootProject.libs.spring.mongodb)
     implementation(rootProject.libs.spring.cache)
     implementation(rootProject.libs.caffeine)
+    implementation(project(":common"))
     testImplementation(rootProject.libs.spring.test)
 }
 

@@ -7,6 +7,7 @@ dependencies {
     implementation(libs.minestom)
     implementation(libs.dotenv)
     implementation(libs.classindex)
+    implementation(project(":common"))
 }
 
 tasks.jar {

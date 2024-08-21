@@ -1,6 +1,6 @@
 package de.ole101.translator.api.common.entities;
 
-import de.ole101.translator.api.common.enums.Language;
+import de.ole101.translator.common.enums.Language;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

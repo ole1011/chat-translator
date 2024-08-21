@@ -33,6 +33,7 @@ allprojects {
 dependencies {
     implementation(project(":base"))
     implementation(project(":api"))
+    implementation(project(":common"))
 }
 
 tasks {
