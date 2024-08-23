@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.gradle.api.JavaVersion.VERSION_21
 
 plugins {
@@ -41,11 +42,15 @@ tasks {
         useJUnitPlatform()
     }
 
-    build {
-        dependsOn(shadowJar)
+    named<Jar>("jar") {
+        archiveFileName.set("${project.name}-${project.version}.jar")
     }
 
-    shadowJar {
-        archiveFileName.set("${project.name}-${project.version}.jar")
+    named<ShadowJar>("shadowJar") {
+        archiveFileName.set("${project.name}-${project.version}-all.jar")
+    }
+
+    build {
+        dependsOn(named("shadowJar"))
     }
 }

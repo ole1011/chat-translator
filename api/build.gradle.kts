@@ -16,8 +16,6 @@ dependencies {
     testImplementation(libs.spring.test)
 }
 
-tasks {
-    jar {
-        archiveFileName.set("${project.name}-api-${project.version}.jar")
-    }
+tasks.named<Jar>("jar") {
+    archiveFileName.set("${project.name}-api-${project.version}.jar")
 }

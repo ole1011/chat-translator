@@ -10,6 +10,6 @@ dependencies {
     implementation(project(":common"))
 }
 
-tasks.jar {
+tasks.named<Jar>("jar") {
     archiveFileName.set("${project.name}-${project.version}.jar")
 }
