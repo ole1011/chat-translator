@@ -1,8 +1,9 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.gradle.api.JavaVersion.VERSION_21
 
 plugins {
-    id("java-library")
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    java
+    alias(libs.plugins.shadow)
 }
 
 allprojects {
@@ -19,8 +20,8 @@ allprojects {
     }
 
     dependencies {
-        "annotationProcessor"(rootProject.libs.bundles.utils)
-        "implementation"(rootProject.libs.bundles.utils)
+        annotationProcessor(rootProject.libs.bundles.utils)
+        implementation(rootProject.libs.bundles.utils)
     }
 
     tasks.withType<JavaCompile>().configureEach {
@@ -41,11 +42,15 @@ tasks {
         useJUnitPlatform()
     }
 
-    build {
-        dependsOn(shadowJar)
+    named<Jar>("jar") {
+        archiveFileName.set("${project.name}-${project.version}.jar")
     }
 
-    shadowJar {
-        archiveFileName.set("${project.name}-${project.version}.jar")
+    named<ShadowJar>("shadowJar") {
+        archiveFileName.set("${project.name}-${project.version}-all.jar")
+    }
+
+    build {
+        dependsOn(named("shadowJar"))
     }
 }
