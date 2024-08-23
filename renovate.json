@@ -5,5 +5,11 @@
   ],
   "ignoreDeps": [
     "minestom-snapshots"
-  ]
+  ],
+  "reviewers": [
+    "ole101"
+  ],
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps"
 }
