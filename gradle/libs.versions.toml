@@ -18,6 +18,9 @@ minestom = "461c56e749"
 dotenv = "3.0.1"
 classindex = "3.13"
 
+shadow = "8.1.1"
+spring-dependency = "1.1.6"
+
 [libraries]
 guice = { group = "com.google.inject", name = "guice", version.ref = "guice" }
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
@@ -42,6 +45,11 @@ minestom = { group = "net.minestom", name = "minestom-snapshots", version.ref = 
 dotenv = { group = "io.github.cdimascio", name = "dotenv-java", version.ref = "dotenv" }
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 classindex = { group = "org.atteo.classindex", name = "classindex", version.ref = "classindex" }
+
+[plugins]
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency = { id = "io.spring.dependency-management", version.ref = "spring-dependency" }
 
 [bundles]
 utils = ["lombok", "annotations"]

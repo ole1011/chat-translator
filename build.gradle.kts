@@ -1,8 +1,8 @@
 import org.gradle.api.JavaVersion.VERSION_21
 
 plugins {
-    id("java-library")
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    java
+    alias(libs.plugins.shadow)
 }
 
 allprojects {
