@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(rootProject.libs.gson)
-    implementation(rootProject.libs.spring.mongodb)
-    implementation(rootProject.libs.minestom)
+    implementation(libs.gson)
+    implementation(libs.spring.mongodb)
+    implementation(libs.minestom)
 }

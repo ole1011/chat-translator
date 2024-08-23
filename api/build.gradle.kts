@@ -4,16 +4,16 @@ plugins {
 }
 
 dependencies {
-    implementation(rootProject.libs.guava)
-    implementation(rootProject.libs.gson)
-    implementation(rootProject.libs.spring.dotenv)
-    implementation(rootProject.libs.spring.web)
-    implementation(rootProject.libs.spring.security)
-    implementation(rootProject.libs.spring.mongodb)
-    implementation(rootProject.libs.spring.cache)
-    implementation(rootProject.libs.caffeine)
+    implementation(libs.guava)
+    implementation(libs.gson)
+    implementation(libs.spring.dotenv)
+    implementation(libs.spring.web)
+    implementation(libs.spring.security)
+    implementation(libs.spring.mongodb)
+    implementation(libs.spring.cache)
+    implementation(libs.caffeine)
     implementation(project(":common"))
-    testImplementation(rootProject.libs.spring.test)
+    testImplementation(libs.spring.test)
 }
 
 tasks {
