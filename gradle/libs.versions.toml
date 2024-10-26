@@ -10,7 +10,7 @@ tinylog-api = "2.7.0"
 tinylog-impl = "2.7.0"
 tinylog-slf4j = "2.7.0"
 
-spring-boot = "3.3.4"
+spring-boot = "3.3.5"
 spring-dotenv = "4.0.0"
 caffeine = "3.1.8"
 
