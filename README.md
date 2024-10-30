@@ -1,3 +1,7 @@
+<div align="center">
+    <img src=".github/chat_translator.png" alt="Chat Translator">
+</div>
+
 # chat-translator
 
 This is a simple [Minestom](https://minestom.net/) server implementation that allows players to chat in different languages and have
